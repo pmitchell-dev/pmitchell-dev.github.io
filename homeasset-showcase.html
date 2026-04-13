@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HomeAsset - Self-hosted Inventory Showcase</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* Vibe Coding Color Palette */
+            --bg-color: #0b0c10;
+            --surface-color: rgba(31, 33, 42, 0.4);
+            --surface-border: rgba(255, 255, 255, 0.08);
+            --text-primary: #e2e8f0;
+            --text-secondary: #94a3b8;
+            --accent-primary: #8b5cf6;
+            --accent-secondary: #3b82f6;
+            --accent-glow: rgba(139, 92, 246, 0.3);
+            
+            --glass-blur: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before, body::after {
+            content: '';
+            position: fixed;
+            width: 80vw;
+            height: 80vh;
+            border-radius: 50%;
+            z-index: -1;
+            filter: blur(120px);
+            opacity: 0.5;
+            animation: float 20s infinite alternate ease-in-out;
+        }
+
+        body::before {
+            background: radial-gradient(circle, var(--accent-primary) 0%, transparent 60%);
+            top: -20%;
+            left: -10%;
+        }
+
+        body::after {
+            background: radial-gradient(circle, var(--accent-secondary) 0%, transparent 60%);
+            bottom: -20%;
+            right: -10%;
+            animation-delay: -10s;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(10%, 15%) scale(1.1); }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            letter-spacing: -0.03em;
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 6rem;
+            animation: fadeUp 1s ease-out;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(139, 92, 246, 0.15);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            color: #d8b4fe;
+            padding: 0.5rem 1.2rem;
+            border-radius: 999px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #fff 0%, #a5b4fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        .glass-panel {
+            background: var(--surface-color);
+            backdrop-filter: blur(var(--glass-blur));
+            -webkit-backdrop-filter: blur(var(--glass-blur));
+            border: 1px solid var(--surface-border);
+            border-radius: 24px;
+            padding: 2.5rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .glass-panel:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 30px 60px -12px rgba(139, 92, 246, 0.15);
+        }
+
+        .visual-showcase {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-bottom: 6rem;
+            animation: fadeUp 1s ease-out 0.2s backwards;
+        }
+
+        .visual-showcase img {
+            width: 100%;
+            height: auto;
+            border-radius: 16px;
+            object-fit: cover;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .visual-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 6rem;
+            animation: fadeUp 1s ease-out 0.4s backwards;
+        }
+
+        .feature-icon {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, rgba(139,92,246,0.2) 0%, rgba(59,130,246,0.2) 100%);
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .feature h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .feature p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
+        .terminal {
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 16px;
+            padding: 2rem;
+            font-family: 'Consolas', 'Monaco', monospace;
+            border: 1px solid rgba(255,255,255,0.1);
+            position: relative;
+            overflow: hidden;
+            animation: fadeUp 1s ease-out 0.6s backwards;
+        }
+
+        .terminal::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+        }
+        
+        .terminal-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            gap: 8px;
+        }
+        
+        .dot { width: 12px; height: 12px; border-radius: 50%; }
+        .dot.red { background: #ef4444; }
+        .dot.yellow { background: #f59e0b; }
+        .dot.green { background: #10b981; }
+
+        code {
+            color: #a78bfa;
+            word-break: break-all;
+            line-height: 1.8;
+            display: block;
+        }
+
+        .comment { color: #64748b; }
+        .keyword { color: #38bdf8; }
+        .string { color: #10b981; }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        footer {
+            text-align: center;
+            padding: 3rem 0;
+            color: var(--text-secondary);
+            border-top: 1px solid var(--surface-border);
+            margin-top: 4rem;
+        }
+        
+        .nav-back {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--accent-secondary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        
+        .nav-back:hover {
+            color: var(--accent-primary);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <a href="index.html" class="nav-back">&larr; Back to Showcase</a>
+        
+        <!-- Hero Section -->
+        <header class="hero">
+            <span class="badge">Self-Hosted Product</span>
+            <h1>HomeAsset Software</h1>
+            <p>Self-hosted home inventory management — organized, searchable, and always available on your local network. Built entirely without cloud dependency.</p>
+        </header>
+
+        <!-- Visual Showcase -->
+        <div class="visual-showcase">
+            <div class="glass-panel">
+                <img src="assets/homeasset/all_items.png" alt="HomeAsset All Items View">
+            </div>
+            
+            <div class="visual-grid">
+                <div class="glass-panel text-center">
+                    <img src="assets/homeasset/dashboard.png" alt="HomeAsset Dashboard">
+                </div>
+                <div class="glass-panel text-center">
+                    <img src="assets/homeasset/add_item.png" alt="Add Item Interface">
+                </div>
+            </div>
+        </div>
+
+        <!-- Features Grid -->
+        <div class="features-grid">
+            
+            <div class="feature glass-panel">
+                <div class="feature-icon">📦</div>
+                <h3>Rich Item Management</h3>
+                <p>Support for custom tags, photos taken dynamically during creation, precise storage locations, tracking serial numbers, and custom metadata fields for complex inventory.</p>
+            </div>
+
+            <div class="feature glass-panel">
+                <div class="feature-icon">📍</div>
+                <h3>Hierarchical Locations</h3>
+                <p>Organize space naturally. Build a nested tree of locations, e.g. "House &rarr; Garage &rarr; Shelf A", assigning unique icons and colors for quick visual parsing.</p>
+            </div>
+
+            <div class="feature glass-panel">
+                <div class="feature-icon">⚙️</div>
+                <h3>Powerful Control Panel</h3>
+                <p>Built with dynamic front-end settings. Efficiently categorize assets using a two-panel interface to establish tags, categories, and unified CSV Data Export workflows.</p>
+            </div>
+
+            <div class="feature glass-panel">
+                <div class="feature-icon">Docker</div>
+                <h3>Docker Persistent Volumes</h3>
+                <p>Simple <code>docker compose up -d</code> boot process. All SQLite data, document attachments, and item thumbnails exist safely in a mapped persistent volume on your physical host.</p>
+            </div>
+
+        </div>
+
+        <!-- Code Snippet -->
+        <div class="terminal glass-panel">
+            <div class="terminal-header">
+                <div class="dot red"></div>
+                <div class="dot yellow"></div>
+                <div class="dot green"></div>
+            </div>
+            <code>
+                <span class="comment"># docker-compose.yml configuration snapshot</span><br>
+                <span class="keyword">services:</span><br>
+                &nbsp;&nbsp;<span class="keyword">homeasset:</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">build:</span> <span class="string">.</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">ports:</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">-</span> <span class="string">"7745:7745"</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">volumes:</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">-</span> <span class="string">./data:/data</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">restart:</span> <span class="string">unless-stopped</span>
+            </code>
+        </div>
+    </div>
+
+    <footer>
+        <p>Private Architecture Showcase &bull; 2026 Engineering Portfolio</p>
+    </footer>
+
+</body>
+</html>
