@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlightTracker - Workspace Showcase</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* Vibe Coding Color Palette - Aviation Theme */
+            --bg-color: #0b1120;
+            --surface-color: rgba(30, 41, 59, 0.4);
+            --surface-border: rgba(255, 255, 255, 0.08);
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --accent-primary: #0ea5e9;
+            --accent-secondary: #38bdf8;
+            --accent-glow: rgba(14, 165, 233, 0.3);
+            
+            --glass-blur: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before, body::after {
+            content: '';
+            position: fixed;
+            width: 80vw;
+            height: 80vh;
+            border-radius: 50%;
+            z-index: -1;
+            filter: blur(120px);
+            opacity: 0.5;
+            animation: float 20s infinite alternate ease-in-out;
+        }
+
+        body::before {
+            background: radial-gradient(circle, var(--accent-primary) 0%, transparent 60%);
+            top: -20%;
+            left: -10%;
+        }
+
+        body::after {
+            background: radial-gradient(circle, var(--accent-secondary) 0%, transparent 60%);
+            bottom: -20%;
+            right: -10%;
+            animation-delay: -10s;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(10%, 15%) scale(1.1); }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            letter-spacing: -0.03em;
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 6rem;
+            animation: fadeUp 1s ease-out;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(14, 165, 233, 0.15);
+            border: 1px solid rgba(14, 165, 233, 0.3);
+            color: #bae6fd;
+            padding: 0.5rem 1.2rem;
+            border-radius: 999px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #fff 0%, #7dd3fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        .glass-panel {
+            background: var(--surface-color);
+            backdrop-filter: blur(var(--glass-blur));
+            -webkit-backdrop-filter: blur(var(--glass-blur));
+            border: 1px solid var(--surface-border);
+            border-radius: 24px;
+            padding: 2.5rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .glass-panel:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 30px 60px -12px var(--accent-glow);
+        }
+
+        .visual-showcase {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-bottom: 6rem;
+            animation: fadeUp 1s ease-out 0.2s backwards;
+        }
+
+        .visual-showcase img {
+            width: 100%;
+            height: auto;
+            border-radius: 16px;
+            object-fit: cover;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .visual-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 6rem;
+            animation: fadeUp 1s ease-out 0.4s backwards;
+        }
+
+        .feature-icon {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, rgba(14,165,233,0.2) 0%, rgba(56,189,248,0.2) 100%);
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .feature h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .feature p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        footer {
+            text-align: center;
+            padding: 3rem 0;
+            color: var(--text-secondary);
+            border-top: 1px solid var(--surface-border);
+            margin-top: 4rem;
+        }
+        
+        .nav-back {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--accent-secondary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        
+        .nav-back:hover {
+            color: var(--accent-primary);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <a href="index.html" class="nav-back">&larr; Back to Showcase</a>
+        
+        <!-- Hero Section -->
+        <header class="hero">
+            <span class="badge">Desktop Application</span>
+            <h1>FlightTracker Workspace</h1>
+            <p>A sophisticated desktop interface for real-time flight monitoring, allowing direct tracking of live aviation operations and historical results via configurable APIs.</p>
+        </header>
+
+        <!-- Visual Showcase -->
+        <div class="visual-showcase">
+            <div class="glass-panel">
+                <img src="assets/flighttracker/flight_results.png" alt="Flight Tracker Results View">
+            </div>
+            
+            <div class="visual-grid">
+                <div class="glass-panel text-center">
+                    <img src="assets/flighttracker/tracking_flight.png" alt="Live Flight Tracking">
+                </div>
+                <div class="glass-panel text-center">
+                    <img src="assets/flighttracker/options_update.png" alt="Options Configuration Interface">
+                </div>
+            </div>
+        </div>
+
+        <!-- Features Grid -->
+        <div class="features-grid">
+            
+            <div class="feature glass-panel">
+                <div class="feature-icon">✈️</div>
+                <h3>Live Monitoring</h3>
+                <p>Observe flights in real-time as they cross global airspace. Integrated with precise aviation APIs to pull live geospatial positioning and trajectory details.</p>
+            </div>
+
+            <div class="feature glass-panel">
+                <div class="feature-icon">📊</div>
+                <h3>Advanced Results View</h3>
+                <p>Filter and ingest mass flight schedules or search results. The dynamic data dashboard supports high-visibility viewing and organized tracking points.</p>
+            </div>
+
+            <div class="feature glass-panel">
+                <div class="feature-icon">⚙️</div>
+                <h3>Custom API Integrations</h3>
+                <p>Plug into standard aviation feeds securely by entering private API keys into the dedicated options menu. No hardcoded limitations.</p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <footer>
+        <p>Private Architecture Showcase &bull; 2026 Engineering Portfolio</p>
+    </footer>
+
+</body>
+</html>
