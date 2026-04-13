@@ -19,6 +19,17 @@
         }
         .project-card {
             max-width: 450px;
+            width: 100%;
+        }
+        .section-heading {
+            text-align: center;
+            margin: 4rem 0 2rem 0;
+            font-family: 'Outfit', sans-serif;
+            font-size: 2rem;
+            color: #fff;
+        }
+        .section-heading:first-child {
+            margin-top: 0;
         }
     </style>
 </head>
@@ -33,12 +44,13 @@
     <header class="hero">
         <div class="container">
             <h1>VibeOps <span>Showcases</span></h1>
-            <p>Architecture and product showcases for Gladstone Pi5 Hub and HomeAsset inventory systems.</p>
+            <p>Architecture and product showcases spanning personal automation and professional workflows.</p>
         </div>
     </header>
 
     <main id="showcase" class="showcase">
         <div class="container">
+            <h2 class="section-heading">Personal Projects</h2>
             <div class="project-grid">
                 <a href="showcase.html" class="project-card">
                     <h3>Gladstone Hub Automation</h3>
@@ -55,7 +67,10 @@
                         <span>Product Showcase &bull; View Features</span>
                     </div>
                 </a>
+            </div>
 
+            <h2 class="section-heading">Professional Workflows</h2>
+            <div class="project-grid">
                 <a href="ezops-showcase.html" class="project-card">
                     <h3>EzOps Workspace</h3>
                     <p>Local-first suite of developer tools including secure log sanitizer, encrypted command saver, and workplan generator.</p>
