@@ -10,6 +10,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     
+    <link rel="stylesheet" href="style.css">
+    
     <style>
         :root {
             /* Vibe Coding Color Palette */
@@ -73,7 +75,7 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 4rem 2rem;
+            padding: 2rem;
         }
 
         h1, h2, h3 {
@@ -84,6 +86,7 @@
         .hero {
             text-align: center;
             margin-bottom: 6rem;
+            padding-top: 4rem;
             animation: fadeUp 1s ease-out;
         }
 
@@ -115,6 +118,7 @@
             color: var(--text-secondary);
             max-width: 650px;
             margin: 0 auto;
+            margin-bottom: 2rem;
         }
 
         .glass-panel {
@@ -192,43 +196,34 @@
             from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        
-        footer {
-            text-align: center;
-            padding: 3rem 0;
-            color: var(--text-secondary);
-            border-top: 1px solid var(--surface-border);
-            margin-top: 4rem;
-        }
-        
-        .nav-back {
-            display: inline-block;
-            margin-bottom: 2rem;
-            color: var(--accent-secondary);
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s;
-        }
-        
-        .nav-back:hover {
-            color: var(--accent-primary);
-        }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <a href="index.html" class="nav-back">&larr; Back to Showcase</a>
+        <nav class="standard-nav">
+            <a href="index.html" class="nav-back-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                Back to Showcase
+            </a>
+        </nav>
         
         <!-- Hero Section -->
         <header class="hero">
             <span class="badge">Desktop Application</span>
             <h1>EzOps Workspace</h1>
             <p>A suite of private, local-first developer tools designed for security and productivity. It runs completely offline—no data ever leaves your device.</p>
+            <div class="tech-stack" style="justify-content: center;">
+                <span class="tech-badge">Python</span>
+                <span class="tech-badge">PySide6</span>
+                <span class="tech-badge">AES-GCM</span>
+                <span class="tech-badge">Office APIs</span>
+            </div>
         </header>
 
         <!-- Visual Showcase -->
         <div class="visual-showcase">
+
             <div class="glass-panel">
                 <img src="assets/ezops/dashboard.png" alt="EzOps Dashboard">
             </div>

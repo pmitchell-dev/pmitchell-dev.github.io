@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CommandDeck - Hardware Showcase</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        :root {
+            --bg-color: #05070a;
+            --surface-color: rgba(15, 23, 42, 0.4);
+            --surface-border: rgba(255, 255, 255, 0.08);
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --accent-primary: #6366f1;
+            --accent-secondary: #f43f5e;
+            --glass-blur: 16px;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            width: 80vw;
+            height: 80vh;
+            border-radius: 50%;
+            z-index: -1;
+            filter: blur(120px);
+            opacity: 0.2;
+            background: radial-gradient(circle, var(--accent-primary) 0%, transparent 60%);
+            top: -20%;
+            right: -10%;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 4rem;
+            padding-top: 4rem;
+        }
+
+        .hero h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #fff 0%, #818cf8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .glass-panel {
+            background: var(--surface-color);
+            backdrop-filter: blur(var(--glass-blur));
+            border: 1px solid var(--surface-border);
+            border-radius: 24px;
+            padding: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .visual-showcase img {
+            width: 100%;
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature p {
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <nav class="standard-nav">
+            <a href="index.html" class="nav-back-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                Back to Showcase
+            </a>
+        </nav>
+
+        <header class="hero">
+            <div class="tech-stack" style="justify-content: center;">
+                <span class="tech-badge">Electron</span>
+                <span class="tech-badge">JavaScript</span>
+                <span class="tech-badge">HTML/CSS</span>
+                <span class="tech-badge">Windows 11</span>
+            </div>
+            <h1>CommandDeck</h1>
+            <p>A sophisticated tile-based hotkey dashboard designed for secondary hardware integration, monitoring live system stats and orchestrating workflows.</p>
+        </header>
+
+        <div class="visual-showcase">
+            <div class="glass-panel">
+                <img src="assets/commanddeck/repo_header.png" alt="CommandDeck Interface Overview">
+            </div>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature glass-panel">
+                <h3>System Telemetry</h3>
+                <p>Monitor CPU load (with sparklines), temperature, speed, GPU data, and RAM usage in real-time from a dedicated 7-inch hardware screen.</p>
+            </div>
+            <div class="feature glass-panel">
+                <h3>App Orchestration</h3>
+                <p>Configure custom tiles to launch specific applications, paths, or web URLs. Instantly switch between professional environments.</p>
+            </div>
+            <div class="feature glass-panel">
+                <h3>Media Control Center</h3>
+                <p>Unified Play/Pause, Next, and Volume controls mapped to system-wide media sessions, keeping your primary monitor focused on work.</p>
+            </div>
+            <div class="feature glass-panel">
+                <h3>Live Weather Integration</h3>
+                <p>Pull current conditions and temperatures via Open-Meteo API without the need for private API keys, displayed on a clean interface tile.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container" style="text-align: center; color: var(--text-secondary); padding: 4rem 0;">
+            <p>VibeOps Architecture Showcase &bull; 2026</p>
+        </div>
+    </footer>
+
+</body>
+</html>
