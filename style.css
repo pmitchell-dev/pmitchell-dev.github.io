@@ -42,6 +42,122 @@ nav {
     border-bottom: 1px solid var(--border-color);
 }
 
+/* --- Interactive Header: Vibe Flow & Neon Grid --- */
+.neon-header-addon {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    margin-top: 2rem;
+    background: rgba(139, 92, 246, 0.05);
+    border: 1px solid rgba(139, 92, 246, 0.2);
+    border-radius: 12px;
+    font-family: 'Space Grotesk', monospace;
+    font-size: 0.9rem;
+    color: #a5b4fc;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(8px);
+}
+
+.neon-header-addon::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        linear-gradient(90deg, rgba(139, 92, 246, 0.05) 1px, transparent 1px),
+        linear-gradient(rgba(139, 92, 246, 0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
+    z-index: -1;
+    opacity: 0.3;
+}
+
+#vibe-clock {
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
+    letter-spacing: 0.1em;
+}
+
+.system-stats {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.stat-item span {
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    margin-right: 0.5rem;
+    text-transform: uppercase;
+}
+
+/* --- Feature Table Component --- */
+.feature-section {
+    margin: 4rem 0;
+    animation: fadeUp 1s ease-out 0.5s backwards;
+}
+
+.feature-section h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.feature-table-container {
+    overflow-x: auto;
+    background: var(--surface-color);
+    border: 1px solid var(--surface-border);
+    border-radius: 20px;
+    backdrop-filter: blur(16px);
+}
+
+.feature-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.feature-table th, .feature-table td {
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid var(--surface-border);
+}
+
+.feature-table th {
+    font-family: 'Space Grotesk', sans-serif;
+    color: #fff;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.feature-table td:first-child {
+    font-weight: 600;
+    color: #d8b4fe;
+}
+
+.feature-table tr:last-child td {
+    border-bottom: none;
+}
+
+.feature-table tr:hover {
+    background: rgba(255, 255, 255, 0.01);
+}
+
+/* Standard Nav Adjustments */
+.standard-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--surface-border);
+}
+
 nav .container {
     display: flex;
     justify-content: space-between;
