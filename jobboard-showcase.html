@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JobBoard - Kanban Job Tracker Showcase</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        :root {
+            --bg-color: #050806;
+            --surface-color: rgba(15, 28, 20, 0.4);
+            --surface-border: rgba(255, 255, 255, 0.08);
+            --text-primary: #f2faf5;
+            --text-secondary: #a7f3d0;
+            --accent-primary: #10b981;
+            --accent-secondary: #3b82f6;
+            --glass-blur: 16px;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            width: 80vw;
+            height: 80vh;
+            border-radius: 50%;
+            z-index: -1;
+            filter: blur(120px);
+            opacity: 0.15;
+            background: radial-gradient(circle, var(--accent-primary) 0%, transparent 60%);
+            bottom: -20%;
+            left: -10%;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 4rem;
+            padding-top: 4rem;
+        }
+
+        .hero h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #fff 0%, #34d399 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .glass-panel {
+            background: var(--surface-color);
+            backdrop-filter: blur(var(--glass-blur));
+            border: 1px solid var(--surface-border);
+            border-radius: 24px;
+            padding: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .visual-showcase img {
+            width: 100%;
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature p {
+            color: #d1fae5;
+        }
+
+        /* Code Block / Terminal */
+        .terminal {
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 16px;
+            padding: 2rem;
+            font-family: 'Consolas', 'Monaco', monospace;
+            border: 1px solid rgba(255,255,255,0.1);
+            position: relative;
+            overflow: hidden;
+            margin-top: 4rem;
+            margin-bottom: 4rem;
+        }
+
+        .terminal::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+        }
+        
+        .terminal-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            gap: 8px;
+        }
+        
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        
+        .dot.red { background: #ef4444; }
+        .dot.yellow { background: #f59e0b; }
+        .dot.green { background: #10b981; }
+
+        code {
+            color: #a7f3d0;
+            word-break: break-all;
+            line-height: 1.8;
+            display: block;
+        }
+
+        .comment {
+            color: #065f46;
+        }
+        
+        .keyword {
+            color: #34d399;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <nav class="standard-nav">
+            <a href="index.html" class="nav-back-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                Back to Showcase
+            </a>
+        </nav>
+
+        <header class="hero">
+            <div class="tech-stack" style="justify-content: center;">
+                <span class="tech-badge">Node.js</span>
+                <span class="tech-badge">Express</span>
+                <span class="tech-badge">Puppeteer</span>
+                <span class="tech-badge">Docker</span>
+            </div>
+            <h1>JobBoard Tracker</h1>
+            <p>A self-hosted, personal job application tracker built as a kanban board with full local data persistence, headless browser page caching, and a floating notes pad.</p>
+        </header>
+
+        <div class="visual-showcase">
+            <div class="glass-panel">
+                <img src="assets/jobboard/placeholder.png" alt="JobBoard Kanban Tracker Interface Overview">
+            </div>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature glass-panel">
+                <h3>Kanban Application Flow</h3>
+                <p>Drag job cards smoothly through custom columns (Applied &rarr; Screening &rarr; Interview &rarr; Offer &rarr; Rejected) with real-time state updates.</p>
+            </div>
+            <div class="feature glass-panel">
+                <h3>PDF Page Caching</h3>
+                <p>Leverages a headless Puppeteer browser instance to render and cache a permanent PDF copy of active job listings before they go offline.</p>
+            </div>
+            <div class="feature glass-panel">
+                <h3>Floating Quick Prep Pad</h3>
+                <p>Includes a floating, draggable prep notepad to draft cover notes and prepare for interview questions, auto-saved to disk and local storage.</p>
+            </div>
+            <div class="feature glass-panel">
+                <h3>Resilient JSON Backups</h3>
+                <p>Saves all state to plain JSON on disk. Automatically creates daily snapshots with a 14-day retention cycle and rolls backups before every write.</p>
+            </div>
+        </div>
+
+        <!-- Terminal panel for Docker run -->
+        <div class="terminal glass-panel">
+            <div class="terminal-header">
+                <div class="dot red"></div>
+                <div class="dot yellow"></div>
+                <div class="dot green"></div>
+            </div>
+            <code>
+                <span class="comment"># Deploy JobBoard via Docker Compose</span><br>
+                mkdir -p data/backups cache<br>
+                docker compose up -d
+            </code>
+        </div>
+
+        <!-- Technical Features -->
+        <section class="feature-section">
+            <h2>Technical Specifications</h2>
+            <div class="feature-table-container">
+                <table class="feature-table">
+                    <thead>
+                        <tr>
+                            <th>Component</th>
+                            <th>Implementation</th>
+                            <th>Benefit</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Backend Server</td>
+                            <td>Node.js 20 & Express REST endpoints</td>
+                            <td>High-performance, lightweight script execution</td>
+                        </tr>
+                        <tr>
+                            <td>PDF Page Service</td>
+                            <td>Headless Puppeteer (Chromium engine)</td>
+                            <td>Accurate capturing of complex, interactive job boards</td>
+                        </tr>
+                        <tr>
+                            <td>Persistence Layer</td>
+                            <td>Local JSON files + atomic write queue</td>
+                            <td>Zero-config database dependency with absolute data ownership</td>
+                        </tr>
+                        <tr>
+                            <td>Build System</td>
+                            <td>Vanilla HTML5 / CSS3 / ES6 Frontend</td>
+                            <td>No bundlers or transpilations required, instant serving and load speeds</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container" style="text-align: center; color: var(--text-secondary); padding: 4rem 0;">
+            <p>Private Architecture Showcase &bull; 2026 Engineering Portfolio</p>
+        </div>
+    </footer>
+
+</body>
+</html>
