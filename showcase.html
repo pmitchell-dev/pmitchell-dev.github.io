@@ -329,6 +329,18 @@
                 <p>Continuous hardware polling, real-time printer status scraping, and scheduled bandwidth audits. All telemetry is localized, preserving security while providing a comprehensive health overview via the Master Dashboard.</p>
             </div>
 
+            <div class="feature glass-panel">
+                <div class="feature-icon">5</div>
+                <h3>Centralized Log Aggregator</h3>
+                <p>Integrates Dozzle agent streaming to aggregate real-time logs and output streams from both the Hub and edge Webhost nodes into a single, secure, and lightweight viewing panel.</p>
+            </div>
+
+            <div class="feature glass-panel">
+                <div class="feature-icon">6</div>
+                <h3>NVR Event Syslog Daemon</h3>
+                <p>Runs a background syslog listener daemon that captures motion-detection alert streams from local security cameras/NVR and dispatches filtered alerts instantly to mobile endpoints.</p>
+            </div>
+
         </div>
 
         <!-- Code Snippet -->
@@ -341,7 +353,7 @@
             <code>
                 <span class="comment"># Zero-Touch Deployment: Universal Bootstrap Command</span><br>
                 <span class="keyword">cd</span> ~ && <span class="keyword">rm</span> -rf ~/scripts && <br>
-                <span class="keyword">git clone</span> https://github.com/legendary034/pi5-scripts.git ~/scripts && <br>
+                <span class="keyword">git clone</span> https://github.com/pmitchell-dev/pi5-scripts.git ~/scripts && <br>
                 <span class="keyword">cd</span> ~/scripts && ./install.sh --ntfy
             </code>
         </div>
@@ -378,11 +390,20 @@
                             <td>5-Strike Watchdog Process</td>
                             <td>Autonomous self-healing services</td>
                         </tr>
+                        <tr>
+                            <td>Observability</td>
+                            <td>Centralized Dozzle agents</td>
+                            <td>Unified real-time container log streaming</td>
+                        </tr>
+                        <tr>
+                            <td>Alert Daemon</td>
+                            <td>UDP syslog event parses</td>
+                            <td>Instant security camera alarm dispatching</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
         </section>
-
     </div>
 
     <footer>
