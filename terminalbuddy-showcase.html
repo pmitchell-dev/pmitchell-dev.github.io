@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VidSimp - Video Player Showcase</title>
+    <title>TerminalBuddy - Companion Panel Showcase</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,12 +13,12 @@
     
     <style>
         :root {
-            --bg-color: #050508;
-            --surface-color: rgba(15, 23, 42, 0.4);
+            --bg-color: #08070b;
+            --surface-color: rgba(20, 15, 30, 0.4);
             --surface-border: rgba(255, 255, 255, 0.08);
-            --text-primary: #f8fafc;
-            --text-secondary: #94a3b8;
-            --accent-primary: #3b82f6;
+            --text-primary: #f5f3f7;
+            --text-secondary: #d1cbd6;
+            --accent-primary: #8b5cf6;
             --accent-secondary: #06b6d4;
             --glass-blur: 16px;
         }
@@ -62,7 +62,7 @@
             font-family: 'Space Grotesk', sans-serif;
             font-size: 4rem;
             margin-bottom: 1rem;
-            background: linear-gradient(135deg, #fff 0%, #60a5fa 100%);
+            background: linear-gradient(135deg, #fff 0%, #a78bfa 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -82,6 +82,19 @@
             border: 1px solid rgba(255,255,255,0.05);
         }
 
+        .visual-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .visual-grid img {
+            width: 100%;
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -95,7 +108,7 @@
         }
 
         .feature p {
-            color: var(--text-secondary);
+            color: #e9e3ed;
         }
 
         /* Code Block / Terminal */
@@ -139,18 +152,18 @@
         .dot.green { background: #10b981; }
 
         code {
-            color: #93c5fd;
+            color: #ddd6fe;
             word-break: break-all;
             line-height: 1.8;
             display: block;
         }
 
         .comment {
-            color: #64748b;
+            color: #7c3aed;
         }
         
         .keyword {
-            color: #38bdf8;
+            color: #a78bfa;
         }
     </style>
 </head>
@@ -166,41 +179,49 @@
 
         <header class="hero">
             <div class="tech-stack" style="justify-content: center;">
-                <span class="tech-badge">Python</span>
-                <span class="tech-badge">PyQt6</span>
-                <span class="tech-badge">python-vlc</span>
-                <span class="tech-badge">SteamOS</span>
+                <span class="tech-badge">Tabby</span>
+                <span class="tech-badge">TypeScript</span>
+                <span class="tech-badge">Angular</span>
+                <span class="tech-badge">Bash</span>
             </div>
-            <h1>VidSimp Video Player</h1>
-            <p>A native, lightweight video player application specifically optimized for Linux, Arch Linux, and the Steam Deck, built with tactile touch controls and immersive display modes.</p>
+            <h1>TerminalBuddy</h1>
+            <p>A Tabby Terminal plugin adding a live, context-aware companion panel to SSH sessions that shows editor cheat sheets and remote host telemetry dynamically.</p>
         </header>
 
         <div class="visual-showcase">
             <div class="glass-panel">
-                <img src="assets/vidsimp/vidsimp_showcase.png" alt="VidSimp Video Player Interface Overview">
+                <img src="assets/terminalbuddy/terminalbuddy_showcase.png" alt="TerminalBuddy Companion Dashboard Interface">
+                <div class="visual-grid">
+                    <div class="glass-panel text-center" style="margin-bottom: 0; padding: 1rem;">
+                        <img src="assets/terminalbuddy/vim_cheatsheet.png" alt="TerminalBuddy Vim Cheat Sheet">
+                    </div>
+                    <div class="glass-panel text-center" style="margin-bottom: 0; padding: 1rem;">
+                        <img src="assets/terminalbuddy/settings.png" alt="TerminalBuddy Settings Panel">
+                    </div>
+                </div>
             </div>
         </div>
 
         <div class="features-grid">
             <div class="feature glass-panel">
-                <h3>Immersive OSD</h3>
-                <p>Double-click to enter full screen. Features a sleek, auto-fading On-Screen Display that hides controls after 3 seconds of inactivity.</p>
+                <h3>Context-Aware Triggers</h3>
+                <p>Monitors shell execution in real-time. Instantly displays cheat sheets when entering <code>vim</code>, <code>vi</code>, or <code>nano</code>, then returns to system status when exiting.</p>
             </div>
             <div class="feature glass-panel">
-                <h3>Smart Resume</h3>
-                <p>Remembers the exact second you stopped watching. Automatically saves playback coordinates for the entire carousel history.</p>
+                <h3>No-Socket Telemetry</h3>
+                <p>Utilizes hook script generated OSC escape sequences embedded in terminal output stream. No secondary open network ports or polling required.</p>
             </div>
             <div class="feature glass-panel">
-                <h3>Steam Deck Optimized</h3>
-                <p>Includes touch-friendly kinetic carousel scrolling, oversized touch targets, and full game controller focus traversal.</p>
+                <h3>Custom Cheat Sheets</h3>
+                <p>Fully configurable via Tabby settings. Create custom keybind cheat sheets triggered by specific CLI commands like <code>docker</code>, <code>git</code>, or <code>python</code>.</p>
             </div>
             <div class="feature glass-panel">
-                <h3>Continuous Play queue</h3>
-                <p>Utilizes background thread thumbnail generation, remembers the last media directory, and automatically steps to the next queue item.</p>
+                <h3>Remote Dashboard</h3>
+                <p>Renders live, customizable status data from remote hosts by parsing <code>~/dashboard/dashboard.txt</code> from SSH session nodes.</p>
             </div>
         </div>
 
-        <!-- Terminal panel for one-step installation -->
+        <!-- Terminal panel for shell hook installation -->
         <div class="terminal glass-panel">
             <div class="terminal-header">
                 <div class="dot red"></div>
@@ -208,8 +229,10 @@
                 <div class="dot green"></div>
             </div>
             <code>
-                <span class="comment"># One-Step SteamOS/Linux Desktop Installation</span><br>
-                curl -sSL https://raw.githubusercontent.com/pmitchell-dev/VidSimp/master/install.sh | bash
+                <span class="comment"># One-Line Remote Shell Integration Hook Setup</span><br>
+                curl -sSL https://raw.githubusercontent.com/pmitchell-dev/TerminalBuddy/main/shell-integration/install.sh | bash<br>
+                <span class="comment"># Reload remote bash profile</span><br>
+                source ~/.bashrc
             </code>
         </div>
 
@@ -227,24 +250,24 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Playback Engine</td>
-                            <td>LibVLC via `python-vlc` bindings</td>
-                            <td>Zero-dependency format support and hardware acceleration</td>
+                            <td>Communication Channel</td>
+                            <td>OSC Escape Sequences (ANSI code 7701)</td>
+                            <td>Zero-port telemetry across NATs and jumpboxes</td>
                         </tr>
                         <tr>
-                            <td>GUI Engine</td>
-                            <td>PyQt6 Core & Windowing</td>
-                            <td>Stable UI lifecycle, touch events, and native rendering</td>
+                            <td>Tabby Plugin Core</td>
+                            <td>TypeScript & Tabby API Providers</td>
+                            <td>Seamless integration with terminal session instances</td>
                         </tr>
                         <tr>
-                            <td>Thumbnail Engine</td>
-                            <td>Asynchronous `ffmpeg` worker pipeline</td>
-                            <td>Seamless thumbnail building without blocking main UI</td>
+                            <td>UI View Controller</td>
+                            <td>Angular Component Architecture</td>
+                            <td>Responsive state binding and instant cheat-sheet switches</td>
                         </tr>
                         <tr>
-                            <td>State Persistence</td>
-                            <td>`QSettings` Registry</td>
-                            <td>Saves playheads, focus nodes, and directory memory</td>
+                            <td>Shell Interception Hook</td>
+                            <td>Bash <code>DEBUG</code> trap & Zsh <code>preexec</code> hooks</td>
+                            <td>Minimal overhead command detection and status serialization</td>
                         </tr>
                     </tbody>
                 </table>
