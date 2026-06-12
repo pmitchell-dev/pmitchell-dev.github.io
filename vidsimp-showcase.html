@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VidSimp - Video Player Showcase</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        :root {
+            --bg-color: #050508;
+            --surface-color: rgba(15, 23, 42, 0.4);
+            --surface-border: rgba(255, 255, 255, 0.08);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --accent-primary: #3b82f6;
+            --accent-secondary: #06b6d4;
+            --glass-blur: 16px;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            width: 80vw;
+            height: 80vh;
+            border-radius: 50%;
+            z-index: -1;
+            filter: blur(120px);
+            opacity: 0.15;
+            background: radial-gradient(circle, var(--accent-primary) 0%, transparent 60%);
+            bottom: -20%;
+            left: -10%;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 4rem;
+            padding-top: 4rem;
+        }
+
+        .hero h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #fff 0%, #60a5fa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .glass-panel {
+            background: var(--surface-color);
+            backdrop-filter: blur(var(--glass-blur));
+            border: 1px solid var(--surface-border);
+            border-radius: 24px;
+            padding: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .visual-showcase img {
+            width: 100%;
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature p {
+            color: var(--text-secondary);
+        }
+
+        /* Code Block / Terminal */
+        .terminal {
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 16px;
+            padding: 2rem;
+            font-family: 'Consolas', 'Monaco', monospace;
+            border: 1px solid rgba(255,255,255,0.1);
+            position: relative;
+            overflow: hidden;
+            margin-top: 4rem;
+            margin-bottom: 4rem;
+        }
+
+        .terminal::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+        }
+        
+        .terminal-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            gap: 8px;
+        }
+        
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        
+        .dot.red { background: #ef4444; }
+        .dot.yellow { background: #f59e0b; }
+        .dot.green { background: #10b981; }
+
+        code {
+            color: #93c5fd;
+            word-break: break-all;
+            line-height: 1.8;
+            display: block;
+        }
+
+        .comment {
+            color: #64748b;
+        }
+        
+        .keyword {
+            color: #38bdf8;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <nav class="standard-nav">
+            <a href="index.html" class="nav-back-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                Back to Showcase
+            </a>
+        </nav>
+
+        <header class="hero">
+            <div class="tech-stack" style="justify-content: center;">
+                <span class="tech-badge">Python</span>
+                <span class="tech-badge">PyQt6</span>
+                <span class="tech-badge">python-vlc</span>
+                <span class="tech-badge">SteamOS</span>
+            </div>
+            <h1>VidSimp Video Player</h1>
+            <p>A native, lightweight video player application specifically optimized for Linux, Arch Linux, and the Steam Deck, built with tactile touch controls and immersive display modes.</p>
+        </header>
+
+        <div class="visual-showcase">
+            <div class="glass-panel">
+                <img src="assets/vidsimp/placeholder.png" alt="VidSimp Video Player Interface Overview">
+            </div>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature glass-panel">
+                <h3>Immersive OSD</h3>
+                <p>Double-click to enter full screen. Features a sleek, auto-fading On-Screen Display that hides controls after 3 seconds of inactivity.</p>
+            </div>
+            <div class="feature glass-panel">
+                <h3>Smart Resume</h3>
+                <p>Remembers the exact second you stopped watching. Automatically saves playback coordinates for the entire carousel history.</p>
+            </div>
+            <div class="feature glass-panel">
+                <h3>Steam Deck Optimized</h3>
+                <p>Includes touch-friendly kinetic carousel scrolling, oversized touch targets, and full game controller focus traversal.</p>
+            </div>
+            <div class="feature glass-panel">
+                <h3>Continuous Play queue</h3>
+                <p>Utilizes background thread thumbnail generation, remembers the last media directory, and automatically steps to the next queue item.</p>
+            </div>
+        </div>
+
+        <!-- Terminal panel for one-step installation -->
+        <div class="terminal glass-panel">
+            <div class="terminal-header">
+                <div class="dot red"></div>
+                <div class="dot yellow"></div>
+                <div class="dot green"></div>
+            </div>
+            <code>
+                <span class="comment"># One-Step SteamOS/Linux Desktop Installation</span><br>
+                curl -sSL https://raw.githubusercontent.com/pmitchell-dev/VidSimp/master/install.sh | bash
+            </code>
+        </div>
+
+        <!-- Technical Features -->
+        <section class="feature-section">
+            <h2>Technical Specifications</h2>
+            <div class="feature-table-container">
+                <table class="feature-table">
+                    <thead>
+                        <tr>
+                            <th>Component</th>
+                            <th>Implementation</th>
+                            <th>Benefit</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Playback Engine</td>
+                            <td>LibVLC via `python-vlc` bindings</td>
+                            <td>Zero-dependency format support and hardware acceleration</td>
+                        </tr>
+                        <tr>
+                            <td>GUI Engine</td>
+                            <td>PyQt6 Core & Windowing</td>
+                            <td>Stable UI lifecycle, touch events, and native rendering</td>
+                        </tr>
+                        <tr>
+                            <td>Thumbnail Engine</td>
+                            <td>Asynchronous `ffmpeg` worker pipeline</td>
+                            <td>Seamless thumbnail building without blocking main UI</td>
+                        </tr>
+                        <tr>
+                            <td>State Persistence</td>
+                            <td>`QSettings` Registry</td>
+                            <td>Saves playheads, focus nodes, and directory memory</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container" style="text-align: center; color: var(--text-secondary); padding: 4rem 0;">
+            <p>Private Architecture Showcase &bull; 2026 Engineering Portfolio</p>
+        </div>
+    </footer>
+
+</body>
+</html>
