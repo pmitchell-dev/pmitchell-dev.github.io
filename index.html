@@ -1,464 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VibeOps | Program Showcase</title>
-    <meta name="description" content="A showcase of programs and workflows built using Vibe Coding techniques.">
-    
-    <!-- Open Graph / Social Media -->
-    <meta property="og:title" content="VibeOps | Program Showcase">
-    <meta property="og:description" content="A premium showcase of automated digital operations, desktop utilities, and self-hosted systems. Built with precision and vibe.">
-    <meta property="og:image" content="assets/architecture.png">
-    <meta property="og:url" content="https://vibeops.cc">
-    <meta name="twitter:card" content="summary_large_image">
-
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-    <style>
-        .container {
-            max-width: 1400px;
-        }
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
-        }
-        .project-card {
-            max-width: 100%;
-            width: 100%;
-        }
-        @media (max-width: 1200px) {
-            .project-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-        @media (max-width: 900px) {
-            .project-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        @media (max-width: 600px) {
-            .project-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-        .section-heading {
-            text-align: left;
-            margin: 4rem 0 2rem 0;
-            font-family: 'Outfit', sans-serif;
-            font-size: 2rem;
-            color: #fff;
-        }
-        .section-heading:first-child {
-            margin-top: 0;
-        }
-        /* Custom Demo Styles */
-        .demo-preview {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 12px;
-            margin-bottom: 1rem;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-    </style>
+    <title>Portfolio Showcase</title>
+    <link rel="stylesheet" href="portfolio.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
 </head>
-
 <body>
-    <nav>
-        <div class="container">
-            <div class="logo">Vibe<span>Ops</span></div>
-        </div>
-    </nav>
+    <div class="background-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
 
-    <header class="hero">
-        <div class="container">
-            <h1>VibeOps <span>Showcases</span></h1>
-            <p>Architecture and product showcases spanning personal automation and professional workflows.</p>
+    <main class="container">
+        <header>
+            <h1>My Projects</h1>
+            <p>A curated collection of my software development work.</p>
+        </header>
+
+        <section class="grid">
+            <!-- Project Card 1 -->
+            <article class="card">
+                <div class="card-image-container">
+                    <img src="assets/piccurator.gif" alt="PicCurator Demo" onerror="this.src='https://via.placeholder.com/400x250/1a1a1a/555555?text=PicCurator+GIF'">
+                </div>
+                <div class="card-content">
+                    <div class="accent-line accent-blue"></div>
+                    <h2>PicCurator Studio</h2>
+                    <p>Duplicate Image Detective using perceptual hashing and EXIF metadata extraction.</p>
+                </div>
+            </article>
+
+            <!-- Project Card 2 -->
+            <article class="card">
+                <div class="card-image-container">
+                    <img src="assets/homeasset.gif" alt="HomeAsset Demo" onerror="this.src='https://via.placeholder.com/400x250/1a1a1a/555555?text=HomeAsset+GIF'">
+                </div>
+                <div class="card-content">
+                    <div class="accent-line accent-purple"></div>
+                    <h2>HomeAsset</h2>
+                    <p>Inventory management and asset tracking system for home organization.</p>
+                </div>
+            </article>
+
+            <!-- Project Card 3 -->
+            <article class="card">
+                <div class="card-image-container">
+                    <img src="assets/jobboard.gif" alt="JobBoard Demo" onerror="this.src='https://via.placeholder.com/400x250/1a1a1a/555555?text=JobBoard+GIF'">
+                </div>
+                <div class="card-content">
+                    <div class="accent-line accent-pink"></div>
+                    <h2>JobBoard</h2>
+                    <p>Aggregated job listing application with automated scraping and filtering.</p>
+                </div>
+            </article>
             
-            <!-- Neon Grid Header Add-on -->
-            <div class="neon-header-addon">
-                <div class="clock-wrap">
-                    <span id="vibe-clock">00:00:00</span>
+            <!-- Project Card 4 -->
+            <article class="card">
+                <div class="card-image-container">
+                    <img src="assets/vidsimp.gif" alt="VidSimp Demo" onerror="this.src='https://via.placeholder.com/400x250/1a1a1a/555555?text=VidSimp+GIF'">
                 </div>
-                <div class="system-stats">
-                    <div class="stat-item">
-                        <span>System Flow</span>
-                        <span id="system-flow-rate">98.4%</span>
-                    </div>
-                    <div class="stat-item">
-                        <span>Status</span>
-                        <span style="color: #10b981;">Optimal</span>
-                    </div>
+                <div class="card-content">
+                    <div class="accent-line accent-green"></div>
+                    <h2>VidSimp</h2>
+                    <p>Streamlined video processing and simplification pipeline.</p>
                 </div>
-            </div>
-        </div>
-    </header>
-
-    <main id="showcase" class="showcase">
-        <div class="container">
-            <h2 class="section-heading">Personal Projects</h2>
-            <div class="project-grid">
-                <!-- Gitsnap -->
-                <div class="project-card">
-                    <a href="gitsnap-showcase.html">
-                        <img src="assets/gitsnap/gitsnap_showcase.png" alt="Gitsnap System Tray" class="demo-preview">
-                        <h3>Gitsnap System Tray</h3>
-                        <p>High-DPI aware screenshot utility for Windows 11. Instantly capture and upload regions to GitHub via global hotkeys.</p>
-                    </a>
-                    <div class="tech-stack">
-                        <span class="tech-badge">Python</span>
-                        <span class="tech-badge">GitHub API</span>
-                        <span class="tech-badge">Windows 11</span>
-                    </div>
-                    <div class="project-meta">
-                        <span>Desktop Utility &bull; View Mechanics</span>
-                    </div>
-                    <a href="https://github.com/pmitchell-dev/Gitsnap" class="github-btn" target="_blank">
-                        <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.041-1.416-4.041-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                        Star on GitHub
-                    </a>
-                </div>
-
-                <!-- CommandDeck -->
-                <div class="project-card">
-                    <a href="commanddeck-showcase.html">
-                        <img src="assets/commanddeck/commanddeck_showcase.png" alt="CommandDeck Dashboard" class="demo-preview">
-                        <h3>CommandDeck Dashboard</h3>
-                        <p>Custom tile-based hotkey dashboard. Monitor system telemetry, control media, and launch workflows from secondary screens.</p>
-                    </a>
-                    <div class="tech-stack">
-                        <span class="tech-badge">Electron</span>
-                        <span class="tech-badge">JavaScript</span>
-                        <span class="tech-badge">Windows 11</span>
-                    </div>
-                    <div class="project-meta">
-                        <span>Hardware Integration &bull; View Workflow</span>
-                    </div>
-                    <a href="https://github.com/pmitchell-dev/CommandDeck" class="github-btn" target="_blank">
-                        <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.041-1.416-4.041-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                        Star on GitHub
-                    </a>
-                </div>
-
-                <!-- SpriteSlicer -->
-                <div class="project-card">
-                    <a href="spriteslicer-showcase.html">
-                        <img src="assets/spriteslicer/sprite_slicer_tour.webp" alt="SpriteSlicer Demo" class="demo-preview">
-                        <h3>SpriteSlicer Tool</h3>
-                        <p>Advanced browser-based sprite sheet processor. Automated island detection and grid management for game assets.</p>
-                    </a>
-                    <div class="tech-stack">
-                        <span class="tech-badge">JavaScript</span>
-                        <span class="tech-badge">HTML5 Canvas</span>
-                        <span class="tech-badge">Web UI</span>
-                    </div>
-                    <div class="project-meta">
-                        <span>Game Dev Utility &bull; View Demo</span>
-                    </div>
-                    <a href="https://github.com/pmitchell-dev/SpriteSlicer" class="github-btn" target="_blank">
-                        <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.041-1.416-4.041-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                        Star on GitHub
-                    </a>
-                </div>
-
-                <!-- FlightTracker -->
-                <div class="project-card">
-                    <a href="flighttracker-showcase.html">
-                        <img src="assets/flighttracker/flighttracker_showcase.png" alt="FlightTracker Mechanics" class="demo-preview">
-                        <h3>FlightTracker Workspace</h3>
-                        <p>Real-time flight monitoring system, tracking aviation statistics and status across multiple metrics.</p>
-                    </a>
-                    <div class="tech-stack">
-                        <span class="tech-badge">Python</span>
-                        <span class="tech-badge">PyQt6</span>
-                        <span class="tech-badge">Aviation APIs</span>
-                    </div>
-                    <div class="project-meta">
-                        <span>Desktop Application &bull; View Mechanics</span>
-                    </div>
-                    <a href="https://github.com/pmitchell-dev/FlightTracker" class="github-btn" target="_blank">
-                        <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.041-1.416-4.041-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                        Star on GitHub
-                    </a>
-                </div>
-
-                <!-- Gladstone Hub Automation -->
-                <div class="project-card">
-                    <a href="showcase.html">
-                        <img src="assets/gladstone/gladstone_showcase.png" alt="Gladstone Hub Automation Overview" class="demo-preview">
-                        <h3>Gladstone Hub Automation</h3>
-                        <p>Master automation suite and universal installer for the Gladstone Pi 5 Communication Hub and Webhost Nodes.</p>
-                    </a>
-                    <div class="tech-stack">
-                        <span class="tech-badge">Bash</span>
-                        <span class="tech-badge">Python</span>
-                        <span class="tech-badge">Docker</span>
-                    </div>
-                    <div class="project-meta">
-                        <span>Systems Engineering &bull; View Architecture</span>
-                    </div>
-                    <a href="https://github.com/pmitchell-dev/pi5-scripts" class="github-btn" target="_blank">
-                        <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.041-1.416-4.041-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                        Star on GitHub
-                    </a>
-                </div>
-
-                <!-- HomeAsset Inventory -->
-                <div class="project-card">
-                    <a href="homeasset-showcase.html">
-                        <img src="assets/homeasset/homeasset_showcase.png" alt="HomeAsset Inventory Demo" class="demo-preview">
-                        <h3>HomeAsset Inventory</h3>
-                        <p>Self-hosted, Docker-ready home inventory management system — organized, searchable, and network available.</p>
-                    </a>
-                    <div class="tech-stack">
-                        <span class="tech-badge">Node.js</span>
-                        <span class="tech-badge">Express</span>
-                        <span class="tech-badge">Docker</span>
-                        <span class="tech-badge">SQLite</span>
-                    </div>
-                    <div class="project-meta">
-                        <span>Product Showcase &bull; View Features</span>
-                    </div>
-                    <a href="https://github.com/pmitchell-dev/HomeAsset" class="github-btn" target="_blank">
-                        <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.041-1.416-4.041-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                        Star on GitHub
-                    </a>
-                </div>
-
-                <!-- Duplicate Image Detective -->
-                <div class="project-card">
-                    <a href="piccompare-showcase.html">
-                        <img src="assets/piccompare/piccompare_showcase.png" alt="Duplicate Image Detective Demo" class="demo-preview">
-                        <h3>Duplicate Image Detective</h3>
-                        <p>Python desktop application for scanning and resolving visually duplicate images using perceptional hashing.</p>
-                    </a>
-                    <div class="tech-stack">
-                        <span class="tech-badge">Python</span>
-                        <span class="tech-badge">pHash</span>
-                        <span class="tech-badge">Pillow</span>
-                    </div>
-                    <div class="project-meta">
-                        <span>Desktop GUI App &bull; View Mechanics</span>
-                    </div>
-                    <a href="https://github.com/pmitchell-dev/DuplicateImageDetective" class="github-btn" target="_blank">
-                        <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.041-1.416-4.041-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                        Star on GitHub
-                    </a>
-                </div>
-
-                <!-- VidSimp Video Player -->
-                <div class="project-card">
-                    <a href="vidsimp-showcase.html">
-                        <img src="assets/vidsimp/vidsimp_showcase.png" alt="VidSimp Video Player Demo" class="demo-preview">
-                        <h3>VidSimp Video Player</h3>
-                        <p>Lightweight touch-friendly video player with kinetic scrolling and resume playback memory for Linux and Steam Deck.</p>
-                    </a>
-                    <div class="tech-stack">
-                        <span class="tech-badge">Python</span>
-                        <span class="tech-badge">PyQt6</span>
-                        <span class="tech-badge">python-vlc</span>
-                        <span class="tech-badge">SteamOS</span>
-                    </div>
-                    <div class="project-meta">
-                        <span>Desktop Application &bull; View Mechanics</span>
-                    </div>
-                    <a href="https://github.com/pmitchell-dev/VidSimp" class="github-btn" target="_blank">
-                        <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.041-1.416-4.041-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                        Star on GitHub
-                    </a>
-                </div>
-
-                <!-- JobBoard Tracker -->
-                <div class="project-card">
-                    <a href="jobboard-showcase.html">
-                        <img src="assets/jobboard/jobboard_showcase.png" alt="JobBoard Kanban Tracker Demo" class="demo-preview">
-                        <h3>JobBoard Tracker</h3>
-                        <p>Self-hosted, personal job application tracker built as a kanban board with full local data persistence and headless browser page caching.</p>
-                    </a>
-                    <div class="tech-stack">
-                        <span class="tech-badge">Node.js</span>
-                        <span class="tech-badge">Express</span>
-                        <span class="tech-badge">Puppeteer</span>
-                        <span class="tech-badge">Docker</span>
-                    </div>
-                    <div class="project-meta">
-                        <span>Product Showcase &bull; View Features</span>
-                    </div>
-                    <a href="https://github.com/pmitchell-dev/JobBoard" class="github-btn" target="_blank">
-                        <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.041-1.416-4.041-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                        Star on GitHub
-                    </a>
-                </div>
-
-                <!-- TerminalBuddy -->
-                <div class="project-card">
-                    <a href="terminalbuddy-showcase.html">
-                        <img src="assets/terminalbuddy/terminalbuddy_showcase.png" alt="TerminalBuddy companion dashboard" class="demo-preview" style="object-position: right center;">
-                        <h3>TerminalBuddy</h3>
-                        <p>Tabby Terminal plugin adding a live, context-aware companion panel to SSH sessions with Vim/Nano cheat sheets and remote telemetry.</p>
-                    </a>
-                    <div class="tech-stack">
-                        <span class="tech-badge">Tabby</span>
-                        <span class="tech-badge">TypeScript</span>
-                        <span class="tech-badge">Angular</span>
-                        <span class="tech-badge">Bash</span>
-                    </div>
-                    <div class="project-meta">
-                        <span>Terminal Plugin &bull; View Companion</span>
-                    </div>
-                    <a href="https://github.com/pmitchell-dev/TerminalBuddy" class="github-btn" target="_blank">
-                        <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.041-1.416-4.041-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                        Star on GitHub
-                    </a>
-                </div>
-
-                <!-- IOWake Alarm -->
-                <div class="project-card">
-                    <a href="iowake-showcase.html">
-                        <img src="assets/iowake/iowake_showcase.png" alt="IOWake Discipline Alarm Demo" class="demo-preview">
-                        <h3>IOWake Discipline Alarm</h3>
-                        <p>Native Kotlin alarm clock app for heavy sleepers with mandatory cognitive puzzle missions and decaying snooze penalties.</p>
-                    </a>
-                    <div class="tech-stack">
-                        <span class="tech-badge">Kotlin</span>
-                        <span class="tech-badge">Compose</span>
-                        <span class="tech-badge">AudioTrack</span>
-                    </div>
-                    <div class="project-meta">
-                        <span>Mobile App &bull; View Mechanics</span>
-                    </div>
-                    <a href="https://github.com/pmitchell-dev/IOWake" class="github-btn" target="_blank">
-                        <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.041-1.416-4.041-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                        Star on GitHub
-                    </a>
-                </div>
-
-                <!-- StoryReader AI -->
-                <div class="project-card">
-                    <a href="storyreader-showcase.html">
-                        <img src="assets/storyreader/storyreader_showcase.png" alt="StoryReader AI Demo" class="demo-preview">
-                        <h3>StoryReader AI</h3>
-                        <p>Dynamic text-to-speech story narrator powered by ElevenLabs API with multi-character voice casting and live playback.</p>
-                    </a>
-                    <div class="tech-stack">
-                        <span class="tech-badge">Python</span>
-                        <span class="tech-badge">Flask</span>
-                        <span class="tech-badge">ElevenLabs</span>
-                    </div>
-                    <div class="project-meta">
-                        <span>AI Web App &bull; View Studio</span>
-                    </div>
-                    <a href="https://github.com/pmitchell-dev/StoryReader" class="github-btn" target="_blank">
-                        <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.041-1.416-4.041-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                        Star on GitHub
-                    </a>
-                </div>
-
-                <!-- Matrix ScreenSaver -->
-                <div class="project-card">
-                    <a href="screensaver-showcase.html">
-                        <img src="assets/screensaver/screensaver_showcase.png" alt="Matrix ScreenSaver Demo" class="demo-preview">
-                        <h3>Matrix ScreenSaver</h3>
-                        <p>Retro cyberpunk digital green code rain screen saver for Windows, built in Python and packaged into a standalone binary.</p>
-                    </a>
-                    <div class="tech-stack">
-                        <span class="tech-badge">Python</span>
-                        <span class="tech-badge">PyInstaller</span>
-                        <span class="tech-badge">WinAPI</span>
-                    </div>
-                    <div class="project-meta">
-                        <span>Desktop Utility &bull; View Stream</span>
-                    </div>
-                    <a href="https://github.com/pmitchell-dev/ScreenSaver" class="github-btn" target="_blank">
-                        <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.041-1.416-4.041-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                        Star on GitHub
-                    </a>
-                </div>
-            </div>
-
-            <h2 class="section-heading">Professional Workflows</h2>
-            <div class="project-grid">
-                <!-- EzOps Workspace -->
-                <div class="project-card">
-                    <a href="ezops-showcase.html">
-                        <img src="assets/ezops/ezops_showcase.png" alt="EzOps Workspace Demo" class="demo-preview">
-                        <h3>EzOps Workspace</h3>
-                        <p>Local-first suite of developer tools including secure log sanitizer, encrypted command saver, and workplan generator.</p>
-                    </a>
-                    <div class="tech-stack">
-                        <span class="tech-badge">Python</span>
-                        <span class="tech-badge">PySide6</span>
-                        <span class="tech-badge">AES-GCM</span>
-                    </div>
-                    <div class="project-meta">
-                        <span>Desktop Application &bull; View Workflow</span>
-                    </div>
-                    <a href="https://github.com/pmitchell-dev/EzOps" class="github-btn" target="_blank">
-                        <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.041-1.416-4.041-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                        Star on GitHub
-                    </a>
-                </div>
-
-                <!-- Odysseus AI Workspace -->
-                <div class="project-card">
-                    <a href="odysseus-showcase.html">
-                        <img src="assets/odysseus/odysseus_showcase.png" alt="Odysseus AI Workspace Demo" class="demo-preview">
-                        <h3>Odysseus AI Workspace</h3>
-                        <p>Self-hosted AI workspace & autonomous agent platform with Deep Research, blind model compare, document editing, and ChromaDB memory.</p>
-                    </a>
-                    <div class="tech-stack">
-                        <span class="tech-badge">Python</span>
-                        <span class="tech-badge">FastAPI</span>
-                        <span class="tech-badge">ChromaDB</span>
-                        <span class="tech-badge">Docker</span>
-                    </div>
-                    <div class="project-meta">
-                        <span>AI Workspace &bull; View Features</span>
-                    </div>
-                    <a href="https://github.com/pmitchell-dev/Odysseus" class="github-btn" target="_blank">
-                        <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.041-1.416-4.041-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                        Star on GitHub
-                    </a>
-                </div>
-
-                <!-- RelayIT Ticketing -->
-                <div class="project-card">
-                    <a href="relayit-showcase.html">
-                        <img src="assets/relayit/relayit_showcase.png" alt="RelayIT Ticketing System Demo" class="demo-preview">
-                        <h3>RelayIT Ticket System</h3>
-                        <p>Lightweight tech support ticketing system with RBAC access controls, anti-cache Caddy headers, issue search, and PHI compliance UI.</p>
-                    </a>
-                    <div class="tech-stack">
-                        <span class="tech-badge">FastAPI</span>
-                        <span class="tech-badge">PostgreSQL</span>
-                        <span class="tech-badge">Caddy</span>
-                        <span class="tech-badge">Docker</span>
-                    </div>
-                    <div class="project-meta">
-                        <span>Web Application &bull; View System</span>
-                    </div>
-                    <a href="https://github.com/pmitchell-dev/RelayIT" class="github-btn" target="_blank">
-                        <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.041-1.416-4.041-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                        Star on GitHub
-                    </a>
-                </div>
-            </div>
-        </div>
+            </article>
+        </section>
     </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 VibeOps. Built with precision and vibe.</p>
-        </div>
-    </footer>
-
-    <!-- Interactive Layer -->
-    <script src="vibe-flow.js"></script>
 </body>
-
 </html>

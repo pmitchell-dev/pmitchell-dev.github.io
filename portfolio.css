@@ -1,0 +1,176 @@
+:root {
+    --bg-color: #0b0f19;
+    --card-bg: rgba(255, 255, 255, 0.03);
+    --card-border: rgba(255, 255, 255, 0.08);
+    --text-primary: #ffffff;
+    --text-secondary: #94a3b8;
+    
+    --accent-blue: #3b82f6;
+    --accent-purple: #8b5cf6;
+    --accent-pink: #ec4899;
+    --accent-green: #10b981;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: 'Outfit', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Background Orbs for Glassmorphism */
+.background-orbs {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.4;
+    animation: float 20s infinite alternate;
+}
+
+.orb-1 {
+    top: -10%; left: -10%;
+    width: 50vw; height: 50vw;
+    background: radial-gradient(circle, rgba(139,92,246,0.3) 0%, rgba(0,0,0,0) 70%);
+}
+
+.orb-2 {
+    bottom: -20%; right: -10%;
+    width: 60vw; height: 60vw;
+    background: radial-gradient(circle, rgba(59,130,246,0.25) 0%, rgba(0,0,0,0) 70%);
+    animation-delay: -5s;
+}
+
+.orb-3 {
+    top: 40%; left: 40%;
+    width: 40vw; height: 40vw;
+    background: radial-gradient(circle, rgba(236,72,153,0.15) 0%, rgba(0,0,0,0) 70%);
+    animation-delay: -10s;
+}
+
+@keyframes float {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(5%, 5%) scale(1.1); }
+}
+
+/* Layout */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+header h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    background: linear-gradient(to right, #fff, #94a3b8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+header p {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+}
+
+/* Grid */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2.5rem;
+}
+
+/* Cards */
+.card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 20px;
+    overflow: hidden;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.card-image-container {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    background: #1a1a1a;
+}
+
+.card-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.card:hover .card-image-container img {
+    transform: scale(1.05);
+}
+
+.card-content {
+    padding: 1.8rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.accent-line {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+}
+
+.accent-blue { background: linear-gradient(90deg, transparent, var(--accent-blue), transparent); }
+.accent-purple { background: linear-gradient(90deg, transparent, var(--accent-purple), transparent); }
+.accent-pink { background: linear-gradient(90deg, transparent, var(--accent-pink), transparent); }
+.accent-green { background: linear-gradient(90deg, transparent, var(--accent-green), transparent); }
+
+.card h2 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    color: var(--text-primary);
+}
+
+.card p {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    header h1 { font-size: 2.8rem; }
+    .grid { grid-template-columns: 1fr; }
+}
