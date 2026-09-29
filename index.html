@@ -4,8 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio Showcase</title>
-    <link rel="stylesheet" href="portfolio.css?v=3">
+    <link rel="stylesheet" href="portfolio.css?v=4">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: false, theme: 'dark', backgroundColor: 'transparent' });
+        window.mermaid = mermaid;
+    </script>
 </head>
 <body>
     <div class="background-orbs">
@@ -112,7 +117,25 @@
             <p>Self-hosted, private language models and custom generative AI tooling.</p>
         </div>
         <section class="grid">
-            <!-- Future Local LLM projects will be added here -->
+            <!-- Project Card 5: Local LLM Immich -->
+            <article class="card" onclick="openModal('modal-localllm')">
+                <div class="card-image-container">
+                    <img src="assets/localllm/cover.png" alt="Local LLM Infrastructure" onerror="this.onerror=null; this.src='https://via.placeholder.com/400x250/1a1a1a/555555?text=Local+LLM'">
+                </div>
+                <div class="card-content">
+                    <div class="accent-line accent-blue"></div>
+                    <h2>Immich Machine Learning GPU Cluster</h2>
+                    <p>Distributed Local LLM processing utilizing personal desktop GPU over the local network to power facial recognition, smart search, and auto-tagging for a self-hosted Immich photo server.</p>
+                    
+                    <div class="tech-stack">
+                        <span class="badge">Nvidia CUDA</span>
+                        <span class="badge">PyTorch</span>
+                        <span class="badge">Immich</span>
+                        <span class="badge">Docker</span>
+                        <span class="badge">Local Network</span>
+                    </div>
+                </div>
+            </article>
         </section>
     </main>
 
@@ -161,9 +184,60 @@
             <p><strong>Gladstone Automation</strong> is a robust Infrastructure-as-Code (IaC) home lab deployment built around a highly resilient Hub-and-Spoke architecture.</p>
             <p>It utilizes a central Raspberry Pi 5 acting as the Hub, orchestrated via raw Bash scripting, which controls and monitors distributed 'Spoke' nodes (repurposed laptops running Debian). The entire spoke infrastructure is strictly managed using <strong>Terraform</strong> and <strong>Chef</strong> to guarantee reproducible, automated deployments of Docker containers, secure networking tunnels, and system configurations with zero manual intervention required.</p>
             <div class="modal-media-gallery">
-                <p><em>(Add your images and GIFs in the index.html file here)</em></p>
+                <h3 style="color: #fff; margin-top: 1rem; font-weight: 600;">Architecture Topology Map</h3>
+                <div style="background: rgba(255,255,255,0.03); padding: 2rem 1rem; border-radius: 12px; border: 1px solid var(--card-border); overflow-x: auto; display: flex; justify-content: center;">
+                    <pre class="mermaid">
+flowchart TD
+    Internet((Public Internet)) <--> CF[Cloudflare Zero Trust Tunnel]
+    
+    subgraph HomeNetwork [Local Home Network]
+        CF <--> Router[Home Router Firewall]
+        Router <--> Hub[Hub Node: Raspberry Pi 5]
+        Router <--> Spoke1[Spoke Node: Webhost Laptop]
+        Router <--> Spoke2[Spoke Node: Media Server]
+        
+        Hub -- "Orchestrates & Monitors" --> Spoke1
+        Hub -- "Orchestrates & Monitors" --> Spoke2
+        
+        subgraph Spoke1 [Webhost Spoke]
+            Chef1[Chef Client] --> Docker1[Docker Engine]
+            Terraform1[Terraform Agent] --> Docker1
+            Docker1 --> Nginx[Nginx Reverse Proxy]
+        end
+    end
+                    </pre>
+                </div>
             </div>
             <a href="https://github.com/pmitchell-dev/gladstone-automation" target="_blank" class="github-link">View Repository on GitHub</a>
+        </div>
+        <div id="modal-localllm">
+            <h2>Immich Machine Learning GPU Cluster</h2>
+            <p><strong>Distributed Local LLM processing</strong> across a secure local network to supercharge the intelligence of a self-hosted Immich photo server.</p>
+            <p>Instead of relying on cloud services for AI features, this project bridges a dedicated, energy-efficient Linux server (running Immich) with a high-performance personal Windows desktop machine via the local network. By offloading the extremely heavy Machine Learning computations (facial recognition algorithms, CLIP model smart-search indexing, and object auto-tagging) to the personal desktop's discrete GPU (Nvidia CUDA), the system achieves near-instantaneous AI processing speeds without causing thermal throttling or latency on the main webhost.</p>
+            
+            <div class="modal-media-gallery">
+                <h3 style="color: #fff; margin-top: 1rem; font-weight: 600;">Data Flow Architecture</h3>
+                <div style="background: rgba(255,255,255,0.03); padding: 2rem 1rem; border-radius: 12px; border: 1px solid var(--card-border); overflow-x: auto; display: flex; justify-content: center;">
+                    <pre class="mermaid">
+flowchart LR
+    Phone[Mobile App] -- "Uploads Photo" --> ImmichServer[Immich Linux Server]
+    
+    subgraph LAN [Local Network]
+        ImmichServer -- "Sends task & tensor data" --> PC[Personal Desktop PC]
+        
+        subgraph PC [Personal Desktop PC]
+            GPU[Nvidia GPU / CUDA]
+            ML[Immich ML Docker Container]
+            ML <--> GPU
+        end
+        
+        PC -- "Returns computed vectors/tags" --> ImmichServer
+    end
+                    </pre>
+                </div>
+            </div>
+            
+            <p style="color: var(--text-secondary); text-align: center; margin-top: 2.5rem; font-size: 0.95rem;"><em>Source code is completely local and proprietary. No public GitHub repository is available.</em></p>
         </div>
     </div>
 
@@ -176,6 +250,14 @@
             const content = document.getElementById(contentId).innerHTML;
             modalBody.innerHTML = content;
             modal.style.display = "flex";
+            
+            // Render Mermaid diagrams if they exist in the new content
+            setTimeout(() => {
+                if (window.mermaid) {
+                    window.mermaid.run({ querySelector: '#modal-body .mermaid' });
+                }
+            }, 50);
+
             // Small delay to allow display:flex to apply before adding opacity class for animation
             setTimeout(() => {
                 modal.classList.add("show");
