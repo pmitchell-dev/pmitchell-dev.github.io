@@ -236,8 +236,6 @@ flowchart LR
                     </pre>
                 </div>
             </div>
-            
-            <p style="color: var(--text-secondary); text-align: center; margin-top: 2.5rem; font-size: 0.95rem;"><em>Source code is completely local and proprietary. No public GitHub repository is available.</em></p>
         </div>
     </div>
 
@@ -254,7 +252,28 @@ flowchart LR
             // Render Mermaid diagrams if they exist in the new content
             setTimeout(() => {
                 if (window.mermaid) {
-                    window.mermaid.run({ querySelector: '#modal-body .mermaid' });
+                    window.mermaid.run({ querySelector: '#modal-body .mermaid' }).then(() => {
+                        const svgElement = document.querySelector('#modal-body .mermaid svg');
+                        if (svgElement) {
+                            svgElement.style.transition = 'transform 0.1s ease-out';
+                            svgElement.style.transformOrigin = 'center center';
+                            let scale = 1;
+                            
+                            // Mouse wheel zoom
+                            svgElement.parentElement.addEventListener('wheel', (e) => {
+                                e.preventDefault();
+                                scale += e.deltaY * -0.0015;
+                                scale = Math.min(Math.max(0.5, scale), 4);
+                                svgElement.style.transform = `scale(${scale})`;
+                            }, { passive: false });
+                            
+                            // Double click to reset zoom
+                            svgElement.parentElement.addEventListener('dblclick', () => {
+                                scale = 1;
+                                svgElement.style.transform = `scale(${scale})`;
+                            });
+                        }
+                    });
                 }
             }, 50);
 
