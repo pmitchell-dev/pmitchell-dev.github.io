@@ -27,14 +27,14 @@
         </div>
         <section class="grid">
             <!-- Project Card 1: HomeAsset -->
-            <article class="card">
+            <article class="card" onclick="openModal('modal-homeasset')">
                 <div class="card-image-container">
                     <img src="assets/homeasset.gif" alt="HomeAsset Demo" onerror="this.src='https://via.placeholder.com/400x250/1a1a1a/555555?text=HomeAsset'">
                 </div>
                 <div class="card-content">
                     <div class="accent-line accent-blue"></div>
                     <h2>HomeAsset</h2>
-                    <p>Inventory management and asset tracking system for home organization.</p>
+                    <p>Inventory management and asset tracking system for home organization.<br><br><em>Designed and developed with AI assistance.</em></p>
                     <div class="tech-stack">
                         <span class="badge">Python (Flask)</span>
                         <span class="badge">JavaScript</span>
@@ -45,14 +45,14 @@
             </article>
 
             <!-- Project Card 2: JobBoard -->
-            <article class="card">
+            <article class="card" onclick="openModal('modal-jobboard')">
                 <div class="card-image-container">
                     <img src="assets/jobboard.gif" alt="JobBoard Demo" onerror="this.src='https://via.placeholder.com/400x250/1a1a1a/555555?text=JobBoard'">
                 </div>
                 <div class="card-content">
                     <div class="accent-line accent-purple"></div>
                     <h2>JobBoard</h2>
-                    <p>Aggregated job listing application with automated web scraping and filtering.</p>
+                    <p>Aggregated job listing application with automated web scraping and filtering.<br><br><em>Designed and developed with AI assistance.</em></p>
                     <div class="tech-stack">
                         <span class="badge">Node.js</span>
                         <span class="badge">Puppeteer</span>
@@ -63,14 +63,14 @@
             </article>
 
             <!-- Project Card 3: Terminal Buddy -->
-            <article class="card">
+            <article class="card" onclick="openModal('modal-terminalbuddy')">
                 <div class="card-image-container">
                     <img src="assets/terminalbuddy.gif" alt="TerminalBuddy Demo" onerror="this.src='https://via.placeholder.com/400x250/1a1a1a/555555?text=TerminalBuddy'">
                 </div>
                 <div class="card-content">
                     <div class="accent-line accent-pink"></div>
                     <h2>Terminal Buddy</h2>
-                    <p>Intelligent Tabby terminal extension providing enhanced CLI features and integrations.</p>
+                    <p>Intelligent Tabby terminal extension providing enhanced CLI features and integrations.<br><br><em>Designed and developed with AI assistance.</em></p>
                     <div class="tech-stack">
                         <span class="badge">TypeScript</span>
                         <span class="badge">Node.js</span>
@@ -88,7 +88,7 @@
         </div>
         <section class="grid">
             <!-- Project Card 4: Gladstone Automation -->
-            <article class="card">
+            <article class="card" onclick="openModal('modal-gladstone')">
                 <div class="card-image-container">
                     <img src="assets/gladstone.gif" alt="Gladstone Automation Demo" onerror="this.src='https://via.placeholder.com/400x250/1a1a1a/555555?text=Gladstone+Automation'">
                 </div>
@@ -115,5 +115,84 @@
             <!-- Future Local LLM projects will be added here -->
         </section>
     </main>
+
+    <!-- Modal Base Structure -->
+    <div id="project-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal()">&times;</span>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <!-- Hidden Content for Modals (Easy to edit) -->
+    <div style="display: none;">
+        <div id="modal-homeasset">
+            <h2>HomeAsset Detailed Overview</h2>
+            <p>Here you can describe the exact features, architecture, and logic of HomeAsset. Drop in additional images and GIFs below!</p>
+            <div class="modal-media-gallery">
+                <!-- Example of how to add an image: -->
+                <!-- <img src="assets/homeasset/screenshot1.png" alt="HomeAsset Screenshot"> -->
+                <p><em>(Add your images and GIFs in the index.html file here)</em></p>
+            </div>
+        </div>
+
+        <div id="modal-jobboard">
+            <h2>JobBoard Detailed Overview</h2>
+            <p>Describe the web scraping pipeline, the automated filtering rules, and how Node.js manages it.</p>
+            <div class="modal-media-gallery">
+                <p><em>(Add your images and GIFs in the index.html file here)</em></p>
+            </div>
+        </div>
+
+        <div id="modal-terminalbuddy">
+            <h2>Terminal Buddy Detailed Overview</h2>
+            <p>Explain the challenges of building a Tabby plugin and how you solved them.</p>
+            <div class="modal-media-gallery">
+                <p><em>(Add your images and GIFs in the index.html file here)</em></p>
+            </div>
+        </div>
+
+        <div id="modal-gladstone">
+            <h2>Gladstone Automation Deep Dive</h2>
+            <p>Detail the Hub and Spoke topology, your Chef recipes, and how you deploy with Terraform.</p>
+            <div class="modal-media-gallery">
+                <p><em>(Add your images and GIFs in the index.html file here)</em></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Scripts -->
+    <script>
+        const modal = document.getElementById("project-modal");
+        const modalBody = document.getElementById("modal-body");
+
+        function openModal(contentId) {
+            const content = document.getElementById(contentId).innerHTML;
+            modalBody.innerHTML = content;
+            modal.style.display = "flex";
+            // Small delay to allow display:flex to apply before adding opacity class for animation
+            setTimeout(() => {
+                modal.classList.add("show");
+            }, 10);
+            
+            // Prevent scrolling on the body when modal is open
+            document.body.style.overflow = "hidden";
+        }
+
+        function closeModal() {
+            modal.classList.remove("show");
+            setTimeout(() => {
+                modal.style.display = "none";
+                document.body.style.overflow = "auto";
+            }, 300); // Wait for transition to finish
+        }
+
+        // Close when clicking outside the modal
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+    </script>
 </body>
 </html>
