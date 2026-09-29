@@ -317,20 +317,22 @@ header p {
 .github-link {
     display: inline-block;
     margin-top: 2rem;
-    padding: 0.8rem 1.5rem;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 0.8rem 2rem;
+    background: linear-gradient(135deg, var(--accent-blue), #2563eb);
+    border: none;
     border-radius: 8px;
     color: #fff;
     text-decoration: none;
     font-weight: 600;
-    transition: all 0.2s ease;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
     text-align: center;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
 }
 
 .github-link:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: #fff;
+    background: linear-gradient(135deg, #2563eb, var(--accent-blue));
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(255,255,255,0.1);
+    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.5);
+    color: #fff;
 }
