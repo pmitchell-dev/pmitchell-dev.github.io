@@ -200,3 +200,24 @@ header p {
     color: #fff;
     border-color: rgba(255, 255, 255, 0.3);
 }
+
+/* Section Headers */
+.section-header {
+    width: 100%;
+    margin-bottom: 2rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 1rem;
+}
+
+.section-header h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.section-header p {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+}
