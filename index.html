@@ -120,7 +120,7 @@
             <!-- Project Card 5: Local LLM Immich -->
             <article class="card" onclick="openModal('modal-localllm')">
                 <div class="card-image-container">
-                    <img src="assets/localllm/cover.png" alt="Local LLM Infrastructure" onerror="this.onerror=null; this.src='https://via.placeholder.com/400x250/1a1a1a/555555?text=Local+LLM'">
+                    <img src="assets/localllm/gpu_cover.png" alt="Local LLM Infrastructure" onerror="this.onerror=null; this.src='https://via.placeholder.com/400x250/1a1a1a/555555?text=Local+LLM'">
                 </div>
                 <div class="card-content">
                     <div class="accent-line accent-blue"></div>
@@ -185,8 +185,8 @@
             <p>It utilizes a central Raspberry Pi 5 acting as the Hub, orchestrated via raw Bash scripting, which controls and monitors distributed 'Spoke' nodes (repurposed laptops running Debian). The entire spoke infrastructure is strictly managed using <strong>Terraform</strong> and <strong>Chef</strong> to guarantee reproducible, automated deployments of Docker containers, secure networking tunnels, and system configurations with zero manual intervention required.</p>
             <div class="modal-media-gallery">
                 <h3 style="color: #fff; margin-top: 1rem; font-weight: 600;">Architecture Topology Map</h3>
-                <div style="background: rgba(255,255,255,0.03); padding: 2rem 1rem; border-radius: 12px; border: 1px solid var(--card-border); overflow-x: auto; display: flex; justify-content: center;">
-                    <pre class="mermaid">
+                <div style="background: rgba(255,255,255,0.03); padding: 2rem 1rem; border-radius: 12px; border: 1px solid var(--card-border); overflow-x: auto; display: flex; justify-content: center; min-height: 500px; align-items: center;">
+                    <pre class="mermaid" style="min-width: 800px;">
 flowchart TD
     Internet((Public Internet)) <--> CF[Cloudflare Zero Trust Tunnel]
     
@@ -217,8 +217,8 @@ flowchart TD
             
             <div class="modal-media-gallery">
                 <h3 style="color: #fff; margin-top: 1rem; font-weight: 600;">Data Flow Architecture</h3>
-                <div style="background: rgba(255,255,255,0.03); padding: 2rem 1rem; border-radius: 12px; border: 1px solid var(--card-border); overflow-x: auto; display: flex; justify-content: center;">
-                    <pre class="mermaid">
+                <div style="background: rgba(255,255,255,0.03); padding: 2rem 1rem; border-radius: 12px; border: 1px solid var(--card-border); overflow-x: auto; display: flex; justify-content: center; min-height: 400px; align-items: center;">
+                    <pre class="mermaid" style="min-width: 800px;">
 flowchart LR
     Phone[Mobile App] -- "Uploads Photo" --> ImmichServer[Immich Linux Server]
     
