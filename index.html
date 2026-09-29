@@ -136,6 +136,43 @@
                     </div>
                 </div>
             </article>
+            <!-- Project Card 6: Audio Archival metadata -->
+            <article class="card" onclick="openModal('modal-audio-archive')">
+                <div class="card-image-container">
+                    <img src="assets/localllm/audio_archival_cover.png" alt="Audio Archival Infrastructure" onerror="this.onerror=null; this.src='https://via.placeholder.com/400x250/1a1a1a/555555?text=Audio+Archival'">
+                </div>
+                <div class="card-content">
+                    <div class="accent-line accent-purple"></div>
+                    <h2>Audio Context Extraction & Archival</h2>
+                    <p>Running local transcription engines inside WSL to process oral history recordings and extract structured metadata using local LLMs.</p>
+                    
+                    <div class="tech-stack">
+                        <span class="badge">WSL</span>
+                        <span class="badge">Whisper</span>
+                        <span class="badge">Local LLMs</span>
+                        <span class="badge">Bash</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Project Card 7: 8mm Film Restoration -->
+            <article class="card" onclick="openModal('modal-film-restoration')">
+                <div class="card-image-container">
+                    <img src="assets/localllm/film_restoration_cover.png" alt="Film Restoration Infrastructure" onerror="this.onerror=null; this.src='https://via.placeholder.com/400x250/1a1a1a/555555?text=Film+Restoration'">
+                </div>
+                <div class="card-content">
+                    <div class="accent-line accent-green"></div>
+                    <h2>8mm Film Restoration Pipeline</h2>
+                    <p>Automated bash workflow leveraging local AI upscaling and hardware-accelerated filters to clean, stabilize, and enhance digitized vintage film reels.</p>
+                    
+                    <div class="tech-stack">
+                        <span class="badge">FFmpeg</span>
+                        <span class="badge">WSL</span>
+                        <span class="badge">Local AI</span>
+                        <span class="badge">Bash</span>
+                    </div>
+                </div>
+            </article>
         </section>
     </main>
 
@@ -236,6 +273,25 @@ flowchart LR
                     </pre>
                 </div>
             </div>
+        </div>
+        
+        <div id="modal-audio-archive">
+            <h2>Audio Context Extraction & Archival Metadata</h2>
+            <p><strong>The Pipeline:</strong> Running local transcription engines (like local Whisper variants) inside WSL to process oral history recordings, family audio tapes, and commentary tracks.</p>
+            <p><strong>The LLM Role:</strong> Once raw transcripts are generated, the text is passed through a local LLM to:</p>
+            <ul>
+                <li>Extract contextual clues (names, dates, locations, event mentions).</li>
+                <li>Generate structured metadata tags, scene summaries, and chronological milestones.</li>
+                <li>Correlate spoken memories directly with digitized assets, turning unstructured spoken audio into searchable, indexed catalog entries for self-hosted archives.</li>
+            </ul>
+        </div>
+
+        <div id="modal-film-restoration">
+            <h2>8mm Film Restoration & Enhancement Pipeline</h2>
+            <p><strong>The Stack:</strong> WSL-based bash automation driving FFmpeg, hardware-accelerated filters, and local AI enhancement workflows.</p>
+            <p><strong>Video Restoration Tuning:</strong> Automated multi-pass video cleanup scripts inside WSL handling film gate stabilization, temporal denoising, and color-cast correction on raw digitized reels from scanner transfers.</p>
+            <p><strong>AI Upscaling vs. Film Grain Fidelity:</strong> Leveraged local models to test super-resolution and enhancement against native-resolution filtering—intentionally dialing in parameters to avoid the plastic "waxy" over-smoothing common with aggressive AI upscalers, preserving authentic 8mm organic grain and edge detail.</p>
+            <p><strong>Batch Merging & Conversion:</strong> Scripted headless batch jobs to losslessly stitch raw segments, correct frame-rate mismatches (e.g., standard 16/18 fps capture to modern presentation cadences), and output clean, optimized archival masters completely offline.</p>
         </div>
     </div>
 
